@@ -1,0 +1,41 @@
+-R theories EchoVerif
+
+# Historical Echo-specific executable, its proofs, and export oracles. These
+# files are intentionally excluded from the maintained generic-IR _CoqProject
+# and are built only with `make migration`.
+theories/LTS.v
+theories/Network.v
+theories/EchoAlgorithm.v
+theories/EchoCorrectness.v
+theories/Example.v
+theories/EchoExecutableTypes.v
+theories/EchoExecutableDecision.v
+theories/EchoExecutableAbstraction.v
+theories/EchoTransitionIR.v
+theories/EchoExecutableReachability.v
+theories/EchoExecutableTopology.v
+theories/EchoExecutableLifecycle.v
+theories/EchoExecutablePending.v
+theories/EchoExecutableCompletion.v
+theories/EchoExecutableForest.v
+theories/EchoExecutableDiscovery.v
+theories/EchoExecutableRequestAccounting.v
+theories/EchoExecutableObligations.v
+theories/EchoExecutablePostDecision.v
+theories/EchoRunner.v
+theories/EchoRunnerExamples.v
+theories/EchoTransitionIRExport.v
+theories/EchoExecutableRefinement.v
+theories/EchoExecutableCorrect.v
+theories/EchoExecutableExamples.v
+theories/EchoEvaluationVectorsExport.v
+theories/EchoRunnerVectorsExport.v
+theories/EchoExecutableSpanningTree.v
+theories/EchoExecutableSpanningTreeExamples.v
+
+# EchoIRCompatibility.v, EchoIRForwardSimulation.v,
+# EchoIRBackwardSimulation.v, and EchoIRProgramExamples.v are retained as
+# migration history but are not built. Their exact-state agreement statement
+# predates certificate removal: the historical start transition stores a
+# caller-supplied neighbor permutation, while the maintained IR deliberately
+# stores the configuration-owned order. The states are therefore not equal.

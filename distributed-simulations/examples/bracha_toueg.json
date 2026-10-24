@@ -1,0 +1,6 @@
+{
+  "A": {"role": "initiator", "neighbors": ["B", "C"], "requests": ["B"]},
+  "B": {"role": "participant", "neighbors": ["A", "D"], "requests": ["D"]},
+  "C": {"role": "participant", "neighbors": ["A", "D"], "requests": ["A"]},
+  "D": {"role": "participant", "neighbors": ["B", "C"], "requests": ["C"]}
+}

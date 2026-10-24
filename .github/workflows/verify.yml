@@ -1,0 +1,39 @@
+name: Verify Rocq and Python integration
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the monorepo
+        uses: actions/checkout@v7
+
+      - name: Build proofs and verify generated Python
+        uses: rocq-prover/docker-opam-action@v1
+        with:
+          custom_image: rocq/rocq-prover:9.0
+          install: |
+            startGroup "Install Python"
+              sudo apt-get update -y -q
+              sudo apt-get install -y python3
+            endGroup
+          before_script: |
+            startGroup "Prepare workspace permissions"
+              sudo chown -R 1000:1000 .
+            endGroup
+          script: |
+            startGroup "Run maintained integration gate"
+              make verify
+            endGroup
+          uninstall: ""
+
+      - name: Restore runner workspace permissions
+        if: ${{ always() }}
+        run: sudo chown -R 1001:116 .

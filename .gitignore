@@ -1,0 +1,19 @@
+# Operating-system and Python caches
+.DS_Store
+**/.DS_Store
+**/__pycache__/
+*.py[cod]
+
+# Local editor state
+.idea/
+.vscode/
+
+# Rocq build products and solver caches
+echo-algorithm-coq/.lia.cache
+echo-algorithm-coq/.nia.cache
+echo-algorithm-coq/tmp/
+echo-algorithm-coq/output/
+
+# Local document exports
+echo-algorithm-coq/*.docx
+echo-algorithm-coq/*.pdf
